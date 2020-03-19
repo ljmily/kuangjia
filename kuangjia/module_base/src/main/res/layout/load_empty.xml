@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/dp_100">
+    <ImageView
+        android:id="@+id/mIvShowPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_empty"/>
+    <TextView
+        android:id="@+id/mTvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="暂无数据╮(╯﹏╰）╭\"/>
+    <TextView
+        android:id="@+id/mTvBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重试"
+        android:textColor="#fff"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_5"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:background="@drawable/yuanjiao"/>
+</LinearLayout>
