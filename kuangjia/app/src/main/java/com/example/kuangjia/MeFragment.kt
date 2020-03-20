@@ -17,7 +17,7 @@ class MeFragment : BaseMvpFragment<BannerPresenter>(), HomeView {
     }
 
     override fun initView() {
-        mPresenter.ckrw("18801424016","Nir4PHR715WK2iZyA6RVsQ==")
+        mPresenter.ckrw("zhanghao","mima")
     }
 
 

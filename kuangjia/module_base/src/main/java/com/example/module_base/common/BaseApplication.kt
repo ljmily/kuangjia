@@ -2,7 +2,11 @@ package com.example.module_base.common
 
 import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDex
+import cn.jpush.im.android.api.JMessageClient
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.module_base.R
+import com.example.module_base.event.NotificationClickEventReceiver
 import com.example.module_base.injection.component.AppComponent
 import com.example.module_base.injection.component.DaggerAppComponent
 import com.example.module_base.injection.module.AppModule
@@ -35,7 +39,7 @@ open class BaseApplication : Application() {
         //glide Tag冲突问题
         //ViewTarget.setTagId(R.id.glide_tag)
         //注册Notification点击的接收器
-        //NotificationClickEventReceiver(this)
+        NotificationClickEventReceiver(this)
         // crashHandler
 //        CrashHandler.init(this)
 
@@ -49,15 +53,15 @@ open class BaseApplication : Application() {
     }
 
     private fun initJG() {
-        //JMessageClient.init(applicationContext, true)
-        //JMessageClient.setDebugMode(true)
+        JMessageClient.init(applicationContext, true)
+        JMessageClient.setDebugMode(true)
         //设置Notification的模式
-        //JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND or JMessageClient.FLAG_NOTIFY_WITH_LED or JMessageClient.FLAG_NOTIFY_WITH_VIBRATE)
+        JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND or JMessageClient.FLAG_NOTIFY_WITH_LED or JMessageClient.FLAG_NOTIFY_WITH_VIBRATE)
     }
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-        //MultiDex.install(this)
+        MultiDex.install(this)
     }
 
     /**
@@ -70,9 +74,9 @@ open class BaseApplication : Application() {
 
     private fun initRouter() {
         //ARouter初始化
-//        ARouter.openLog()    // 打印日志
-//        ARouter.openDebug()
-//        ARouter.init(this)
+        ARouter.openLog()    // 打印日志
+        ARouter.openDebug()
+        ARouter.init(this)
     }
 
     private fun initAppInjection() {
@@ -85,6 +89,11 @@ open class BaseApplication : Application() {
      */
     companion object {
         lateinit var context: BaseApplication
+        const val CONV_TITLE = "conv_title"
+        const val TARGET_ID = "targetId"
+        const val GROUP_ID = "groupId"
+        const val TARGET_APP_KEY = "targetAppKey"
 
+        const val path_chatActivity = "/Chat/ChatActivity"
     }
 }

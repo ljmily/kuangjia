@@ -2,5 +2,6 @@
 <resources>
     <color name="common_blue_zb">#1498ED</color>
     <color name="text_9">#999999</color>
+    <color name="blank">#FFD709</color>
 
 </resources>

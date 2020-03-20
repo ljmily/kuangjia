@@ -11,11 +11,17 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.kuangjia.injection.component.DaggerUserComponent
 import com.example.kuangjia.injection.module.UserModule
 import com.example.module_base.activity.BaseMvpActivity
+import com.example.module_base.common.RouterPath
+import com.example.module_base.common.RouterPath.UserCenter.Companion.path_login
 import com.example.module_base.data.UserData
+import com.example.module_base.ext.onClick
 import com.example.module_base.utils.AlertDialogios
+import com.example.module_base.utils.StatusBarUtils
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : BaseMvpActivity<BannerPresenter>(),HomeView {
@@ -23,9 +29,14 @@ class MainActivity : BaseMvpActivity<BannerPresenter>(),HomeView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //设置状态栏透明
+        StatusBarUtils.setTranslucentStatus(this);
     }
 
     override fun initView() {
+        button.onClick {
+            ARouter.getInstance().build(path_login).navigation()
+        }
         //  mPresenter.ckrw("18801424016","Nir4PHR715WK2iZyA6RVsQ==")
         var a  = 0
         var c  = 0

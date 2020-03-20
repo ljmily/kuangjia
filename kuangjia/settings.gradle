@@ -1,1 +1,2 @@
 include ':app', ':module_base'
+include ':module_message'

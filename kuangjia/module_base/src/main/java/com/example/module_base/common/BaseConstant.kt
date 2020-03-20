@@ -27,4 +27,10 @@ object BaseConstant {
     const val USER_ID = "USER_ID"
     //用户
     const val KEY_SP_USER = "sp_user"
+
+    //pushId
+    const val KET_PUSH_ID = "KET_PUSH_ID"
+
+    const val KET_ORDER_ID="KET_ORDER_ID"
+    const val FINDORDER = "FINDORDER"
 }
